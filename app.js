@@ -78,25 +78,25 @@ function addTask(e) {
     li.appendChild(link);
     //append li to ul
     taskList.appendChild(li);
-    // clear taskInput
-    taskInput.value = '';
 
-    e.preventDefault();
     // Store in localStorage
     storeTaskInlocalStorage(taskInput.value);
+
+    // clear taskInput
+    taskInput.value = '';
+    e.preventDefault();
+
 }
 
 // storeTaskInlocalStorage
 function storeTaskInlocalStorage(task) {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
-        tasks = []
+        tasks = [];
     } else {
-        tasks = JSON.parse(localStorage.getItem('tasks'))
+        tasks = JSON.parse(localStorage.getItem('tasks'));
     }
-
     tasks.push(task);
-
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
